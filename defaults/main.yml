@@ -1,0 +1,28 @@
+---
+# defaults file for logrotate-role
+
+# logrotate_config_file:
+#   - filename: idealista
+#     wildcard: "/var/log/news/*"
+#     options:
+#       - monthly
+#       - rotate 2
+#       - olddir /var/log/news/old
+#       - missingok
+#       - nocompress
+#     scripts:
+#       postrotate: kill -HUP 'cat /var/run/inn.pid'
+
+# Example above will produce this output (extracted from '$ man logrotate')
+# in /etc/logrotate.d/idealista:
+
+# "/var/log/news/*" {
+#     monthly
+#     rotate 2
+#     olddir /var/log/news/old
+#     missingok
+#     postrotate
+#         kill -HUP 'cat /var/run/inn.pid'
+#     endscript
+#     nocompress
+# }

@@ -1,0 +1,14 @@
+package:
+  logrotate:
+    installed: true
+
+{{ $logrotate_files_path := .Vars.logrotate_path }}
+file:
+{{ if index .Vars.logrotate_config_file }}
+{{ range $key := index .Vars.logrotate_config_file }}
+  {{ $logrotate_files_path }}/{{ $key.filename }}:
+    exists: true
+{{ end }}
+{{ end }}
+  {{ .Vars.logrotate_cron_daily_path }}/{{ .Vars.logrotate_file }}:
+    exists: true

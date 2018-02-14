@@ -1,0 +1,13 @@
+---
+
+logrotate_config_file:
+  - filename: idealista
+    wildcard: "/var/log/news/*"
+    options:
+      - monthly
+      - rotate 2
+      - olddir /var/log/news/old
+      - missingok
+      - nocompress
+    scripts:
+      postrotate: kill -HUP 'cat /var/run/inn.pid'

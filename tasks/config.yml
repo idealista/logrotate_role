@@ -1,0 +1,13 @@
+---
+
+- name: LOGROTATE | Copy specific log rotation config for services
+  template:
+    src: logrotate.d.j2
+    dest: "{{ logrotate_path }}/{{ item.filename }}"
+    mode: 0644
+  with_items: "{{ logrotate_config_file }}"
+
+- name: LOGROTATE | Test log rotation config
+  command: logrotate -d {{ logrotate_path }}/{{ item.filename }}
+  with_items: "{{ logrotate_config_file }}"
+  changed_when: false

@@ -1,0 +1,6 @@
+---
+
+- name: LOGROTATE | Install logrotate
+  apt:
+    name: logrotate
+    update_cache: "yes"

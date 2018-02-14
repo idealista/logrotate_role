@@ -1,0 +1,19 @@
+---
+
+- name: LOGROTATE | Install
+  import_tasks: install.yml
+  tags:
+    - install
+
+- name: LOGROTATE | Configure
+  import_tasks: config.yml
+  tags:
+    - config
+  when: "logrotate_config_file is defined"
+
+- name: LOGROTATE | Configure cron
+  import_tasks: config-cron.yml
+  tags:
+    - config
+    - config-cron
+  when: "logrotate_config_file is defined"
