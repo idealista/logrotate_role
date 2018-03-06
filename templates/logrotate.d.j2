@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
 
-"{{ item.wildcard }}" {
+{{ item.wildcard }} {
   {% if item.options is defined -%}
   {% for option in item.options -%}
   {{ option }}
