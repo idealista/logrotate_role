@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed|comment }}
 
 {{ item.wildcard }} {
   {% if item.options is defined -%}
