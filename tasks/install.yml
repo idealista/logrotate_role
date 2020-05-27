@@ -1,6 +1,7 @@
 ---
 
 - name: LOGROTATE | Install logrotate
-  apt:
-    name: logrotate
-    update_cache: "yes"
+  package:
+    name: "{{ logrotate_packages }}"
+    update_cache: true
+    state: present

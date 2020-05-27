@@ -3,15 +3,15 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
-
+lint: |
+  yamllint .
+  ansible-lint
 platforms:
   - name: logrotate
     groups:
       - logrotate
-    image: geerlingguy/docker-debian9-ansible:latest
-    privileged: True
+    image: ${MOLECULE_DISTRO:-debian:buster-slim}
+    privileged: true
     capabilities:
       - SYS_ADMIN
     volumes:
@@ -27,6 +27,4 @@ scenario:
   name: create-config
 
 verifier:
-  name: goss
-  lint:
-    name: 'None'
+  name: ansible

@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased]
 
+## [2.0.0]
+### Changed
+- *Cleanup of legacy stuff. Upgraded to molecule 3.0, goss 0.13, etc*
+
 ## [1.0.0]
 ### Added
 - *First release*
