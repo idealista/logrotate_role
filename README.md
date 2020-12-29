@@ -1,4 +1,7 @@
 # Logrotate Ansible role
+![Logo](https://raw.githubusercontent.com/idealista/cookiecutter-ansible-role/master/logo.gif)
+
+[![Build Status](https://travis-ci.org/idealista/cookiecutter-ansible-role.png)](https://travis-ci.org/idealista/logrotate_role)
 
 This Ansible role installs logrotate in a Debian environment.
 
