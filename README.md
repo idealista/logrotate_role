@@ -32,7 +32,7 @@ For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker]
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: idealista.logrotate-role
+- src: idealista.logrotate_role
   version: 2.0.0
   name: logrotate
 ```
@@ -65,7 +65,7 @@ $ MOLECULE_DISTRO=(debian8|debian9|debian10) pipenv run molecule test
 
 Note: Debian9 (Debian Stretch) will be used as default linux distro if none is provided.
 
-See [molecule.yml](https://github.com/idealista/logrotate-role/blob/master/molecule/default/molecule.yml) to check possible testing platforms.
+See [molecule.yml](https://github.com/idealista/logrotate_role/blob/master/molecule/default/molecule.yml) to check possible testing platforms.
 
 ## Built With
 
@@ -74,15 +74,15 @@ See [molecule.yml](https://github.com/idealista/logrotate-role/blob/master/molec
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/logrotate-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/logrotate_role/tags).
 
-Additionaly you can see what change in each version in the [CHANGELOG.md](https://github.com/idealista/logrotate-role/blob/master/CHANGELOG.md) file.
+Additionaly you can see what change in each version in the [CHANGELOG.md](https://github.com/idealista/logrotate_role/blob/master/CHANGELOG.md) file.
 
 ## Authors
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/logrotate-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/logrotate_role/contributors) who participated in this project.
 
 ## License
 
@@ -92,4 +92,4 @@ This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/idealista/logrotate-role/blob/master/.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/idealista/logrotate_role/blob/master/.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
