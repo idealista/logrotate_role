@@ -1,0 +1,4 @@
+---
+
+__logrotate_cron_daily_path: /etc/cron.daily
+__logrotate_cron_hourly_path: /etc/cron.hourly

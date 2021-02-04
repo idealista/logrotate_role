@@ -1,0 +1,27 @@
+---
+
+- name: LOGROTATE | Setting more OS specific variables (Debian 9)
+  set_fact:
+    logrotate_cron_daily_path: "{{ logrotate_cron_daily_path if logrotate_cron_daily_path is defined else __logrotate_cron_daily_path }}"
+    logrotate_cron_hourly_path: "{{ logrotate_cron_hourly_path if logrotate_cron_hourly_path is defined else __logrotate_cron_hourly_path }}"
+  when: systemd_path is not defined
+  tags:
+    - config
+    - config-frequency
+
+- name: LOGROTATE | Set facts
+  set_fact:
+    options: "{{ options|default([]) + item }}"
+  with_items:
+    - "{{ logrotate_config_file | json_query( '[*].options' ) }}"
+  tags:
+    - config
+    - config-frequency
+
+- name: LOGROTATE | Changing to cron.hourly
+  command: "dpkg-divert --add --rename --divert {{ logrotate_cron_hourly_path }}/{{ logrotate_file }} {{ logrotate_cron_daily_path }}/{{ logrotate_file }}"
+  when: "'hourly' in options"
+  changed_when: false
+  tags:
+    - config
+    - config-frequency

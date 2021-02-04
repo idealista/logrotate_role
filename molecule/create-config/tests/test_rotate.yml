@@ -10,5 +10,6 @@ file:
     exists: true
 {{ end }}
 {{ end }}
-  {{ .Vars.logrotate_cron_daily_path }}/{{ .Vars.logrotate_file }}:
+  {{ .Vars.__systemd_path }}/{{ .Vars.logrotate_timer }}:
     exists: true
+    contains: [daily]

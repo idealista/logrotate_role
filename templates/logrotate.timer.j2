@@ -1,0 +1,11 @@
+[Unit]
+Description=Rotation timer of log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+
+[Timer]
+OnCalendar={{ timer_oncalendar }}
+AccuracySec={{ timer_accuracysec }}
+Persistent=true
+
+[Install]
+WantedBy=timers.target

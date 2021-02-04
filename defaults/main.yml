@@ -31,5 +31,3 @@ logrotate_packages:
   - logrotate
 logrotate_path: /etc/logrotate.d
 logrotate_file: logrotate
-logrotate_cron_daily_path: /etc/cron.daily
-logrotate_cron_hourly_path: /etc/cron.hourly
