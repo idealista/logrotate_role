@@ -10,10 +10,10 @@ install:
   - pipenv sync
 env:
   jobs:
-    MOLECULE_DISTRO=debian:stretch-slim SCENARIO=changed-to-hourly
-    MOLECULE_DISTRO=debian:buster-slim SCENARIO=create-config
-    MOLECULE_DISTRO=debian:buster-slim SCENARIO=default
-    MOLECULE_DISTRO=debian:buster-slim SCENARIO=timer-to-hourly
+    - MOLECULE_DISTRO=debian:stretch-slim SCENARIO=changed-to-hourly
+    - MOLECULE_DISTRO=debian:buster-slim SCENARIO=create-config
+    - MOLECULE_DISTRO=debian:buster-slim SCENARIO=default
+    - MOLECULE_DISTRO=debian:buster-slim SCENARIO=timer-to-hourly
 script:
   - pipenv run molecule test --scenario-name=${SCENARIO}
 
