@@ -6,8 +6,8 @@
 This Ansible role installs logrotate in a Debian environment.
 
 - [Getting Started](#getting-started)
-	- [Prerequisities](#prerequisities)
-	- [Installing](#installing)
+  - [Prerequisities](#prerequisities)
+  - [Installing](#installing)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Built With](#built-with)
@@ -64,7 +64,7 @@ currently, only Debian 9 (Stretch) and Debian 10 (Buster) are supported:
 
 ```
 $ pipenv sync
-$ MOLECULE_DISTRO=(debian8|debian9|debian10) pipenv run molecule test
+$ pipenv run molecule test
 ```
 
 Note: Debian10 (Debian Buster) will be used as default linux distro if none is provided.

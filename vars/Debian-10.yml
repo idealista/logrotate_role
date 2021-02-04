@@ -1,9 +1,0 @@
----
-
-logrotate_j2_timer: logrotate.timer.j2
-logrotate_timer: logrotate.timer
-timer_oncalendar: daily
-timer_accuracysec: 12h
-timer_oncalendar_hourly: hourly
-timer_accuracysec_hourly: 1us
-__systemd_path: /lib/systemd/system

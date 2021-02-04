@@ -1,13 +1,5 @@
 ---
 
-- name: LOGROTATE | Define systemd_path (Debian 10)
-  set_fact:
-    systemd_path: "{{ __systemd_path }}"
-  when: systemd_path is not defined
-  tags:
-    - config
-    - config-frequency
-
 - name: LOGROTATE | Set facts
   set_fact:
     options: "{{ options|default([]) + item }}"
@@ -19,8 +11,8 @@
 
 - name: LOGROTATE | Changing timer to hourly
   set_fact:
-    timer_oncalendar: "{{ timer_oncalendar_hourly }}"
-    timer_accuracysec: "{{ timer_accuracysec_hourly }}"
+    logrotate_timer_oncalendar: "{{ logrotate_timer_oncalendar_hourly }}"
+    logrotate_timer_accuracysec: "{{ logrotate_timer_accuracysec_hourly }}"
   when: "'hourly' in options"
   tags:
     - config
@@ -29,7 +21,7 @@
 - name: LOGROTATE | Add timer
   template:
     src: "{{ logrotate_j2_timer }}"
-    dest: "{{ systemd_path }}/{{ logrotate_timer }}"
+    dest: "{{ logrotate_systemd_path }}/{{ logrotate_timer }}"
     mode: 0644
   become: true
   tags:

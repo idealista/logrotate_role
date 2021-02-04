@@ -23,7 +23,6 @@
   vars_files:
     - ../../defaults/main.yml
     - "{{ playbook_dir }}/group_vars/logrotate/main.yml"
-    - "../../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
   tasks:
     - name: Download and install goss

@@ -3,6 +3,6 @@ package:
     installed: true
 
 file:
-  {{ .Vars.__systemd_path }}/{{ .Vars.logrotate_timer }}:
+  {{ .Vars.logrotate_systemd_path }}/{{ .Vars.logrotate_timer }}:
     exists: true
     contains: [hourly]

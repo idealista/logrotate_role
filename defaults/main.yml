@@ -31,3 +31,16 @@ logrotate_packages:
   - logrotate
 logrotate_path: /etc/logrotate.d
 logrotate_file: logrotate
+
+# logrotate works with cron utility in Debian 9 by default
+logrotate_cron_daily_path: /etc/cron.daily
+logrotate_cron_hourly_path: /etc/cron.hourly
+
+# logrotate works with a systemd timer in Debian 10 by default
+logrotate_j2_timer: logrotate.timer.j2
+logrotate_timer: logrotate.timer
+logrotate_timer_oncalendar: daily
+logrotate_timer_accuracysec: 12h
+logrotate_timer_oncalendar_hourly: hourly
+logrotate_timer_accuracysec_hourly: 1us
+logrotate_systemd_path: /lib/systemd/system

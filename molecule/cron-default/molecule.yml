@@ -10,7 +10,7 @@ platforms:
   - name: logrotate
     groups:
       - logrotate
-    image: ${MOLECULE_DISTRO:-debian:buster-slim}
+    image: ${MOLECULE_DISTRO:-debian:stretch-slim}
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -24,7 +24,7 @@ provisioner:
     name: ansible-lint
 
 scenario:
-  name: create-config
+  name: cron-default
 
 verifier:
   name: ansible

@@ -1,14 +1,5 @@
 ---
 
-- name: LOGROTATE | Setting more OS specific variables (Debian 9)
-  set_fact:
-    logrotate_cron_daily_path: "{{ logrotate_cron_daily_path if logrotate_cron_daily_path is defined else __logrotate_cron_daily_path }}"
-    logrotate_cron_hourly_path: "{{ logrotate_cron_hourly_path if logrotate_cron_hourly_path is defined else __logrotate_cron_hourly_path }}"
-  when: systemd_path is not defined
-  tags:
-    - config
-    - config-frequency
-
 - name: LOGROTATE | Set facts
   set_fact:
     options: "{{ options|default([]) + item }}"
