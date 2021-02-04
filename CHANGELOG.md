@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased]
 
+### Added
+- *[#1](https://github.com/idealista/logrotate_role/issues/1) [SUPPORT] Logrotate in Debian 10 (Buster)* @emepege
+
 ## [2.0.0]
 ### Changed
 - *Cleanup of legacy stuff. Upgraded to molecule 3.0, goss 0.13, etc*
