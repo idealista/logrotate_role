@@ -22,6 +22,7 @@
 
   vars_files:
     - ../../defaults/main.yml
+    - "{{ playbook_dir }}/group_vars/logrotate/main.yml"
 
   tasks:
     - name: Download and install goss

@@ -5,8 +5,14 @@
     options: "{{ options|default([]) + item }}"
   with_items:
     - "{{ logrotate_config_file | json_query( '[*].options' ) }}"
+  tags:
+    - config
+    - config-frequency
 
 - name: LOGROTATE | Changing to cron.hourly
   command: "dpkg-divert --add --rename --divert {{ logrotate_cron_hourly_path }}/{{ logrotate_file }} {{ logrotate_cron_daily_path }}/{{ logrotate_file }}"
   when: "'hourly' in options"
   changed_when: false
+  tags:
+    - config
+    - config-frequency

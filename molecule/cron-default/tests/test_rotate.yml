@@ -1,0 +1,7 @@
+package:
+  logrotate:
+    installed: true
+
+file:
+  {{ .Vars.logrotate_cron_daily_path }}/{{ .Vars.logrotate_file }}:
+    exists: true

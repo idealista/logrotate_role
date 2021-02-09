@@ -1,0 +1,29 @@
+---
+
+- name: LOGROTATE | Set facts
+  set_fact:
+    options: "{{ options|default([]) + item }}"
+  with_items:
+    - "{{ logrotate_config_file | json_query( '[*].options' ) }}"
+  tags:
+    - config
+    - config-frequency
+
+- name: LOGROTATE | Changing timer to hourly
+  set_fact:
+    logrotate_timer_oncalendar: "{{ logrotate_timer_oncalendar_hourly }}"
+    logrotate_timer_accuracysec: "{{ logrotate_timer_accuracysec_hourly }}"
+  when: "'hourly' in options"
+  tags:
+    - config
+    - config-frequency
+
+- name: LOGROTATE | Add timer
+  template:
+    src: "{{ logrotate_j2_timer }}"
+    dest: "{{ logrotate_systemd_path }}/{{ logrotate_timer }}"
+    mode: 0644
+  become: true
+  tags:
+    - config
+    - config-frequency

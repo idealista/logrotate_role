@@ -5,4 +5,4 @@ package:
 file:
   {{ .Vars.logrotate_systemd_path }}/{{ .Vars.logrotate_timer }}:
     exists: true
-    contains: [daily]
+    contains: [hourly]
