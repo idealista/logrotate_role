@@ -2,7 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
-## [Unreleased]
+## [Unreleased](https://github.com/idealista/logrotate_role/tree/develop)
+### Fixed
+### Added
+### Changed
+### Removed
+
+## [3.0.0](https://github.com/idealista/logrotate_role/tree/3.0.0)
+### Added
+- *[#1](https://github.com/idealista/logrotate_role/issues/1) [SUPPORT] Logrotate in Debian 10 (Buster)* @emepege
 
 ## [2.0.0]
 ### Changed

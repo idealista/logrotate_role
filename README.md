@@ -6,8 +6,8 @@
 This Ansible role installs logrotate in a Debian environment.
 
 - [Getting Started](#getting-started)
-	- [Prerequisities](#prerequisities)
-	- [Installing](#installing)
+  - [Prerequisities](#prerequisities)
+  - [Installing](#installing)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Built With](#built-with)
@@ -54,16 +54,20 @@ Use in a playbook:
 
 ## Usage
 
-Look to the [defaults vars](defaults/main.yml) file to see the possible configuration vars.
+Look to the [defaults vars](defaults/main.yml) and [specific OS related](vars/) files to see the possible configuration vars.
+*Important note about logrotate configuration*
+currently, only Debian 9 (Stretch) and Debian 10 (Buster) are supported:
+* In Debian 9, logrotate is triggered by the cron utility
+* In Debian 10, it works as a systemd service triggered with a timer by default.
 
 ## Testing
 
 ```
 $ pipenv sync
-$ MOLECULE_DISTRO=(debian8|debian9|debian10) pipenv run molecule test
+$ pipenv run molecule test
 ```
 
-Note: Debian9 (Debian Stretch) will be used as default linux distro if none is provided.
+Note: Debian10 (Debian Buster) will be used as default linux distro if none is provided.
 
 See [molecule.yml](https://github.com/idealista/logrotate_role/blob/master/molecule/default/molecule.yml) to check possible testing platforms.
 

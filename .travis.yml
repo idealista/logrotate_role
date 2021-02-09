@@ -10,10 +10,14 @@ install:
   - pipenv sync
 env:
   jobs:
-    MOLECULE_DISTRO=debian:stretch-slim
-    MOLECULE_DISTRO=debian:buster-slim
+    - MOLECULE_DISTRO=debian:stretch-slim SCENARIO=cron-create-config
+    - MOLECULE_DISTRO=debian:stretch-slim SCENARIO=cron-default
+    - MOLECULE_DISTRO=debian:stretch-slim SCENARIO=cron-to-hourly
+    - MOLECULE_DISTRO=debian:buster-slim SCENARIO=default
+    - MOLECULE_DISTRO=debian:buster-slim SCENARIO=timer-create-config
+    - MOLECULE_DISTRO=debian:buster-slim SCENARIO=timer-to-hourly
 script:
-  - pipenv run molecule test --all
+  - pipenv run molecule test --scenario-name=${SCENARIO}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

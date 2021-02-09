@@ -11,9 +11,9 @@
     - config
   when: "logrotate_config_file is defined"
 
-- name: LOGROTATE | Configure cron
-  import_tasks: config-cron.yml
+- name: LOGROTATE | Configure frequency
+  include_tasks: "config-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
   tags:
     - config
-    - config-cron
+    - config-frequency
   when: "logrotate_config_file is defined"
