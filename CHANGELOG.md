@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/logrotate_role/tree/develop)
 ### Fixed
+- *[#4](https://github.com/idealista/logrotate_role/issues/4) [BUG] Error in logrotate installation on Debian 10* @emepege
+  
 ### Added
 ### Changed
 ### Removed
