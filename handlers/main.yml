@@ -1,0 +1,7 @@
+---
+
+- name: start timer
+  systemd:
+    name: "{{ logrotate_timer }}"
+    state: started
+    daemon_reload: true
