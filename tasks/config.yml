@@ -7,7 +7,7 @@
     mode: 0644
   with_items: "{{ logrotate_config_file }}"
 
-- name: LOGROTATE | Test log rotation config
+- name: LOGROTATE | Test log rotation configs
   command: logrotate -d {{ logrotate_path }}/{{ item.filename }}
   with_items: "{{ logrotate_config_file }}"
   changed_when: false
