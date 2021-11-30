@@ -1,2 +1,5 @@
 exclude_paths:
-  - molecule/
+  - ./molecule
+parseable: true
+use_default_rules: true
+verbosity: 1

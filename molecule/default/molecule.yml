@@ -1,22 +1,31 @@
 ---
+
 dependency:
   name: galaxy
+
 driver:
   name: docker
+
 lint: |
   yamllint .
   ansible-lint
+
 platforms:
   - name: logrotate
     groups:
       - logrotate
-    image: ${MOLECULE_DISTRO:-debian:buster-slim}
-    privileged: true
+    image: ${MOLECULE_DISTRO:-debian:bullseye-slim}
+    privileged: false
     capabilities:
       - SYS_ADMIN
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: '/lib/systemd/systemd'
+    stop_signal: 'RTMIN+3'
 
 provisioner:
   name: ansible
