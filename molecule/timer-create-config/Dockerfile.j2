@@ -7,7 +7,7 @@ FROM {{ item.image }}
 {% endif %}
 
 # install minimal packages for debian slim images
-{% if item.image == 'debian:bullseye-slim' %}
+{% if item.image == 'debian:bullseye-slim' or item.image == 'debian:bookworm-slim' %}
 RUN apt-get update && \
     apt-get install -y python3 sudo bash ca-certificates iproute2 systemd systemd-sysv python3-pip && \
     apt-get clean
