@@ -6,16 +6,23 @@ FROM {{ item.registry.url }}/{{ item.image }}
 FROM {{ item.image }}
 {% endif %}
 
-# install minimal packages for debian slim images
-{% if item.image == 'debian:bullseye-slim' or item.image == 'debian:bookworm-slim' %}
-RUN apt-get update && \
-    apt-get install -y python3 sudo bash ca-certificates iproute2 systemd systemd-sysv python3-pip && \
+{% if item.image == 'debian:stretch-slim' %}
+RUN rm /etc/apt/sources.list.d/* || true
+RUN echo "deb http://archive.debian.org/debian/ stretch main contrib non-free" > /etc/apt/sources.list && \
+    echo "deb-src http://archive.debian.org/debian/ stretch main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian-security stretch/updates main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb-src http://archive.debian.org/debian-security stretch/updates main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian/ stretch-backports main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb-src http://archive.debian.org/debian/ stretch-backports main contrib non-free" >> /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y --force-yes python3 sudo bash ca-certificates iproute2 systemd systemd-sysv && \
     apt-get clean
-{% else %}
+{% endif %}
+
+# install minimal packages for debian slim images
 RUN apt-get update && \
     apt-get install -y python sudo bash ca-certificates iproute2 systemd systemd-sysv python-pip && \
     apt-get clean
-{% endif %}
 
 STOPSIGNAL SIGRTMIN+3
 RUN systemctl set-default multi-user.target
