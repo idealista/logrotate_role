@@ -15,15 +15,13 @@ platforms:
     groups:
       - logrotate
     image: ${MOLECULE_DISTRO:-debian:bullseye-slim}
-    privileged: false
+    privileged: true
     capabilities:
       - SYS_ADMIN
     tmpfs:
       - /tmp
       - /run
       - /run/lock
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: '/lib/systemd/systemd'
     stop_signal: 'RTMIN+3'
 
