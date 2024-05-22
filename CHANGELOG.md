@@ -16,6 +16,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ### Removed -->
 
+## [3.0.3](https://github.com/idealista/logrotate_role/tree/3.0.3)
+
+### Fixed
+
+### Added
+
+- Add Debian 12  support
+
+### Changed
+
+### Removed
+
 ## [3.0.2](https://github.com/idealista/logrotate_role/tree/3.0.2)
 
 ### Fixed
